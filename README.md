@@ -39,13 +39,4 @@ Over **10 years of hands-on experience** designing, automating, and scaling miss
 
 ---
 
-### Reference Architecture: Ticket-to-Production GitOps Workflow
 
-```mermaid
-flowchart LR
-    A[Jira Ticket / Change Request] -->|Webhook Validation| B(GitLab / Azure DevOps)
-    B -->|Lint & Security Scan| C{Terraform Plan / Packer Build}
-    C -->|PR Approval Gate| D[Immutable Golden Image & IaC]
-    D -->|GitOps Sync / ArgoCD| E[(Hybrid Cloud: Azure & On-Prem)]
-    E -->|Telemetry & Logs| F[Datadog / Prometheus / ELK]
-    F -.->|Automated RCA & Alerts| A
